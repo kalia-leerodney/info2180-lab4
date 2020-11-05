@@ -1,26 +1,36 @@
 window.onload = function(){
     var searchbtn = document.getElementById("btn");
-    searchbtn.addEventListener("click", function(e){
-        var httpxl = new XMLHttpRequest();
-        var url = "superheroes.php";
-        httpxl.onreadystatechange = function(){
-            if (this.readyState == 4 && this.status == 200){
-                var superHeroesArray = this.responseText;
-                var p = "";
-                var x;
-                var v = "<ul>"
-                for(x = 0; x = superHeroesArray.length ; x++){
-                    p += v + "<li>" + superHeroesArray[x] + "<li>";
-                }
+    var hrequest;
+    
+    searchbtn.addEventListener('click' , function(e) {
+        e.preventDefault();
+        hrequest = new XMLHttpRequest();
 
-                document.getElementById("list").innerHTML = p;
-                alert(p);
+        var urlcode = "superheroes.php";
+        var handleChange = function() {
+            if (hrequest.readyState == XMLHttpRequest.DONE && hrequest.status == 200){
+                var hero = hrequest.responseText;
+                var list = document.querySelector("#list");
+                list.innerHTML = hero;
+                alert(hero);
+
             }
-        }
-        httpxl.open("GET" , url , true);
-        httpxl.send();
 
+            else{
+                alert("Error Detected");
+            }
+
+        }
+        hrequest.open("GET" , urlcode, true);
+        hrequest.onreadystatechange = handleChange;
+        hrequest.send();
     });
+
+  
+
+
+
+    
 
 
 }
