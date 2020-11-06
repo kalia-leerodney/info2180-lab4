@@ -67,6 +67,7 @@ $superheroes = [
 /*echo $_GET["query"];*/
 
 $query = filter_input(INPUT_GET, "query", FILTER_SANITIZE_STRING);
+ 
 
 ?>
 
@@ -78,13 +79,7 @@ $query = filter_input(INPUT_GET, "query", FILTER_SANITIZE_STRING);
         
     <?php elseif ($query == ""): ?>
         <li><?= $hero['alias']; ?></li>
-    
-    <?php else: ?>
-        <p><?php print("No Hero Was Found. Try Again"); ?></p>
-
-    
-        
-              
-    <?php endif; ?>
+             
+    <?php endif ?>
 <?php endforeach ?>
 
