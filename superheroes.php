@@ -1,5 +1,6 @@
 <?php
 
+
 $superheroes = [
   [
       "id" => 1,
@@ -63,10 +64,27 @@ $superheroes = [
   ], 
 ];
 
+/*echo $_GET["query"];*/
+
+$query = filter_input(INPUT_GET, "query", FILTER_SANITIZE_STRING);
+
 ?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+<?php foreach($superheroes as $hero): ?>
+    <?php if ($query == $hero['alias'] || $query == $hero['name']): ?>
+        <h3><?php echo $hero['alias']; ?></h3>
+        <h4><?php echo $hero['name']; ?></h4>
+        <p><?php echo $hero['biography']; ?></p>
+        
+    <?php elseif ($query == ""): ?>
+        <li><?= $hero['alias']; ?></li>
+    
+    <?php else: ?>
+        <p><?php print("No Hero Was Found. Try Again"); ?></p>
+
+    
+        
+              
+    <?php endif; ?>
+<?php endforeach ?>
+
