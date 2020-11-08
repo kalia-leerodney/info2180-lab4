@@ -1,15 +1,53 @@
 
 body{
-    background-color: blue;
-    margin: 0;
-    font-size: 16px;
-
+    margin:0;
+    font-size:16px;
+    background-color: beige;
+  
 }
 
 
-h1{
-    background-color: blue;
-    text-align: center;
-    color: white;
+header{
+    background-color:blue;
+    text-align:center;
+    color:white;
+    justify-content:center;
+    align-items:center;
+    display: flex;
+    flex-direction: row;
+    padding-top:5px;
+    padding-bottom:5px;
 }
+
+.container{
+    justify-content:center;
+    align-items:center;
+}
+
+form input{
+    padding-top:50px;
+    width:50%;
+    height:40%;
+    padding: 10px 20px;
+    margin-top: 50px;
+    align-items: center;
+    margin-left: 25%;
+}
+
+.btn{
+   height:50%;
+   padding:8px 20px;
+   color: white;
+   background-color: red;
+   padding-top: 10px;
+   align-items: center;
+   float: right;
+   margin-bottom: 10%;
+   display: flex;
+   justify-content: center;
+   margin-top: 100px;
+   margin-right: 45%;
+}
+
+
 
