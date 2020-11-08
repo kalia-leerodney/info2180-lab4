@@ -93,6 +93,7 @@ $superherofound = false;
     <?php if ($superherofound == false): ?>
     <p> Superhero Not Found </p>
     <?php endif ?>
+    
   <?php endif ?>
 </ul>
 
